@@ -1,39 +1,86 @@
 package ru.netology.radio;
 
 public class Radio {
-    private int radioVolume;
-    private int stationNumber;
+    public int currentRadioStation;
+    public int currentVolume;
 
-    public int getRadioVolume() {
-        return radioVolume;
-    }
+    public int setCurrentRadioStation(int currentRadioStation) {
 
-    public void setRadioVolume(int i) {
-        this.radioVolume = radioVolume;
-    }
-
-    public int getStationNumber(){
-
-        return stationNumber;
-    }
-
-    public void setStationNumber(int stationNumber) {
-
-        this.stationNumber = stationNumber;
-    }
-
-    public void increaseStation() {
-        if (stationNumber < 9) {
-            stationNumber = stationNumber + 1;
+        if (currentRadioStation > 9) {
+            currentRadioStation = 0;
         }
+
+        if (currentRadioStation < 0) {
+            currentRadioStation = 0;
+        }
+
+        if (currentRadioStation > 0) {
+            this.currentRadioStation = currentRadioStation;
+        }
+
+        this.currentRadioStation = currentRadioStation;
+
+
+        return currentRadioStation;
     }
+
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
+    }
+
+
+    public void setCurrentVolume(int currentVolume) {
+
+        if (currentVolume > 10) {
+            return;
+        }
+        this.currentVolume = currentVolume;
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+
     public void increaseVolume() {
-        if (radioVolume < 10) {
-            radioVolume = radioVolume + 1;
+        if (currentVolume < 10) {
+            currentVolume = currentVolume + 1;
+        }
+        if (currentVolume == 10) {
+            currentVolume = currentVolume;
+        }
+
+    }
+
+    public void reducerVolume() {
+        if (currentVolume > 0) {
+            currentVolume = currentVolume - 1;
+        }
+        if (currentVolume == 0) {
+            currentVolume = currentVolume;
         }
     }
+
+    public void increaseRadioStation() {
+
+        if (currentRadioStation < 9) {
+            currentRadioStation = currentRadioStation + 1;
+        }
+        if (currentRadioStation >= 9) {
+            currentRadioStation = 0;
+        }
+    }
+
+    public void reducerRadioStation() {
+        if (currentRadioStation > 0) {
+            currentRadioStation = currentRadioStation - 1;
+        }
+        if (currentRadioStation == 0) {
+            currentRadioStation = 9;
+        }
+    }
+
 
 }
-
 
 
