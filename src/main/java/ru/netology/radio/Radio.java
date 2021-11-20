@@ -1,86 +1,90 @@
 package ru.netology.radio;
 
 public class Radio {
-    private int currentVolume = 0;
+    private int id = 1;
+    private int currentVolume = 10;
     private int radioStation = 0;
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int numberStation = 30;
+    private int maxStation = numberStation;
+    private int minStation = 0;
 
+    public Radio() {
+
+    }
+
+    public Radio(int numberStation) {
+        this.numberStation = numberStation;
+    }
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public int getRadioStation() {
+    public int getStation() {
         return radioStation;
     }
 
-    public int setRadioStation(int newRadioStation) {
-        if (newRadioStation < 0) {
-
-            newRadioStation = 9;
+    public int setCurrentVolume(int currentVolume) {
+        if (currentVolume < 0) {
+            currentVolume = minVolume;
         }
-        if (newRadioStation > 9) {
-            newRadioStation = 0;
+        if (currentVolume > 100) {
+            currentVolume = maxVolume;
         }
-        radioStation = newRadioStation;
-        return radioStation;
-    }
-
-    public int setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
-            newCurrentVolume = 0;
-        }
-        if (newCurrentVolume > 10) {
-            newCurrentVolume = 10;
-        }
-        currentVolume = newCurrentVolume;
         return currentVolume;
     }
 
-    public int setStartVolume() {
-        int volume = 0;
-        if (currentVolume < 10) {
-            volume = currentVolume + 1;
-        } else {
-            volume = 10;
-
+    public int setRadioStation(int station) {
+        if (station < 0) {
+            station = maxStation;
+            return station;
         }
-        return volume;
+        if (station > maxStation) {
+            station = minStation;
+            return station;
+        }
+        return station;
     }
 
+    public int setIncreaseVolume(int currentVolume) {
+        if (currentVolume < 100) {
+            currentVolume = currentVolume + 1;
+        } else {
+            currentVolume = maxVolume;
+        }
+        return currentVolume;
+    }
 
-    public int setMinusVolume() {
-        int volume = 0;
+    public int setMinusVolume(int currentVolume) {
         if (currentVolume > 0) {
-            volume = currentVolume - 1;
+            currentVolume = currentVolume - 1;
         } else {
-            volume = 0;
-
+            currentVolume = minVolume;
         }
-        return volume;
+        return currentVolume;
     }
 
-    public int setStartRadioStationMinus() {
-        int stan = 0;
-        if (radioStation > 0) {
-            stan = radioStation - 1;
+    public int setRadioStationMinus(int station) {
+        if (station > 0) {
+            station = station - 1;
+
         } else {
-            stan = 9;
+            station = maxStation;
         }
-        return radioStation;
+        return station;
     }
 
-    public int setStartStation() {
-        int stan = 0;
-        if (radioStation < 9) {
-            stan = radioStation + 1;
+    public int setIncreaseStation(int station) {
+        if (station < maxStation) {
+            station = station + 1;
+
         } else {
-            stan = 0;
-
+            station = minStation;
         }
-        return stan;
-
+        return station;
     }
-
 }
 
 
