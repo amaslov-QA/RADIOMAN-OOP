@@ -66,7 +66,7 @@ public class Radio {
         } else {
             stan = 9;
         }
-        return radioStation;
+        return stan;
     }
 
     public int setStartStation() {
@@ -82,5 +82,4 @@ public class Radio {
     }
 
 }
-
 
