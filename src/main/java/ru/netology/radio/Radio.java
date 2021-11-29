@@ -69,24 +69,25 @@ public class Radio {
     }
 
     public int setStartRadioStationMinus() {
-        int stan = 0;
+        int station = 0;
         if (currentRadioStation > 0) {
-            stan = currentRadioStation - 1;
-        } else {
-            stan = 9;
+            station = currentRadioStation - 1;
         }
-        return stan;
+        if (currentRadioStation == 0) {
+            station = 9;
+        }
+        return station;
     }
 
     public int setStartStation() {
-        int stan = 0;
+        int station = 0;
         if (currentRadioStation < 9) {
-            stan = currentRadioStation + 1;
-        } else {
-            stan = 0;
+            station = currentRadioStation + 1;
+        } if (currentRadioStation >=9){
+            station = 0;
 
         }
-        return stan;
+        return station;
 
     }
 
