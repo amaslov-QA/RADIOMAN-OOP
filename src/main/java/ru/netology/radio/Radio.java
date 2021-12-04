@@ -10,6 +10,7 @@ public class Radio {
     }
 
     public int getRadioStation() {
+
         return currentRadioStation;
     }
 
@@ -22,11 +23,6 @@ public class Radio {
         if (currentRadioStation < 0) {
             currentRadioStation = 0;
         }
-
-        if (currentRadioStation > 0) {
-            this.currentRadioStation = currentRadioStation;
-        }
-
         this.currentRadioStation = currentRadioStation;
 
 
@@ -83,7 +79,8 @@ public class Radio {
         int station = 0;
         if (currentRadioStation < 9) {
             station = currentRadioStation + 1;
-        } if (currentRadioStation >=9){
+        }
+        if (currentRadioStation >= 9) {
             station = 0;
 
         }
