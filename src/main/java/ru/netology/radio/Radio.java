@@ -4,9 +4,17 @@ public class Radio {
     private int currentVolume;
     private int currentRadioStation;
 
+    public int setCurrentRadioStation(int newCurrentRadioStation) {
 
-    public int getCurrentVolume() {
-        return currentVolume;
+        if (newCurrentRadioStation > 9) {
+            newCurrentRadioStation = 0;
+        }
+
+        if (newCurrentRadioStation < 0) {
+            newCurrentRadioStation = 9;
+        }
+        currentRadioStation = newCurrentRadioStation;
+        return currentRadioStation;
     }
 
     public int getRadioStation() {
@@ -14,19 +22,8 @@ public class Radio {
         return currentRadioStation;
     }
 
-    public int setCurrentRadioStation(int currentRadioStation) {
-
-        if (currentRadioStation > 9) {
-            currentRadioStation = 0;
-        }
-
-        if (currentRadioStation < 0) {
-            currentRadioStation = 0;
-        }
-        this.currentRadioStation = currentRadioStation;
-
-
-        return currentRadioStation;
+    public int getCurrentVolume() {
+        return currentVolume;
     }
 
 
@@ -42,51 +39,44 @@ public class Radio {
     }
 
     public int setStartVolume() {
-        int volume = 0;
         if (currentVolume < 10) {
-            volume = currentVolume + 1;
+            currentVolume = currentVolume + 1;
         } else {
-            volume = 10;
+            currentVolume = 10;
 
         }
-        return volume;
+        return currentVolume;
     }
 
 
     public int setMinusVolume() {
-        int volume = 0;
         if (currentVolume > 0) {
-            volume = currentVolume - 1;
+            currentVolume = currentVolume - 1;
         } else {
-            volume = 0;
+            currentVolume = 0;
 
         }
-        return volume;
+        return currentVolume;
     }
 
     public int setStartRadioStationMinus() {
-        int station = 0;
         if (currentRadioStation > 0) {
-            station = currentRadioStation - 1;
+            currentRadioStation = currentRadioStation - 1;
         }
-        if (currentRadioStation == 0) {
-            station = 9;
+        if (currentRadioStation <= 0) {
+            currentRadioStation = 9;
         }
-        return station;
+        return currentRadioStation;
     }
 
     public int setStartStation() {
-        int station = 0;
         if (currentRadioStation < 9) {
-            station = currentRadioStation + 1;
+            currentRadioStation = currentRadioStation + 1;
+        } else {
+            currentRadioStation = 0;
         }
-        if (currentRadioStation >= 9) {
-            station = 0;
-
-        }
-        return station;
+        return currentRadioStation;
 
     }
 
 }
-

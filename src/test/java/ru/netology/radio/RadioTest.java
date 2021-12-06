@@ -30,7 +30,7 @@ class RadioTest {
 
     @Test
     void shouldSetStationTwo() {
-        int expected = 0;
+        int expected = 9;
         int actual = service.setCurrentRadioStation(-1);
         assertEquals(expected, actual);
     }
@@ -114,7 +114,7 @@ class RadioTest {
     @Test
     void shouldSetStartRadioStationMinusOne() {
         service.setCurrentRadioStation(-1);
-        int expected = 9;
+        int expected = 8;
         int actual = service.setStartRadioStationMinus();
         assertEquals(expected, actual);
     }
@@ -143,7 +143,7 @@ class RadioTest {
     }
     @Test
     void shouldSetStartRadioStationMinusFive() {
-        service.setCurrentRadioStation(-100);
+        service.setCurrentRadioStation(0);
         int expected = 9;
         int actual = service.setStartRadioStationMinus();
         assertEquals(expected, actual);
